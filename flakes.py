@@ -2,10 +2,12 @@ import utils as util
 import random
 
 class Flakes:
-    def __init__(self, numOfFlakes):
+    def __init__(self, numOfFlakes, colors, dx_range):
         self.__points = []
+        self.__colors_selection = colors
         self.__colors = []
         self.__dx = []
+        self.__dx_range = dx_range
         self.pens = []
         self.__numOfFlakes = numOfFlakes
         util.init_pens(self.pens, numOfFlakes)
@@ -19,9 +21,9 @@ class Flakes:
             y2 = y1 + random.randint(-10, 10)
             x3 = x2 + random.randint(-20, 10)
             y3 = y2 + random.randint(0, 20)
-            dx = random.randint(5, 10)
+            dx = random.randint(min(self.__dx_range), max(self.__dx_range))
             self.__points.append([[x1,y1],[x2,y2],[x3,y3]])
-            self.__colors.append("#ffffff")
+            self.__colors.append(random.choice(self.__colors_selection))
             self.__dx.append(dx)
 
     def update(self):
