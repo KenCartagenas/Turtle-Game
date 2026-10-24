@@ -2,10 +2,11 @@ import utils as util
 import random
 
 class Grasses:
-    def __init__(self):
+    def __init__(self, colors):
         self.__points = []
         self.__colors = []
         self.__dx = []
+        self.__colors = colors
         self.pens = []
         self.__numOfGrass = 0
 
@@ -24,7 +25,7 @@ class Grasses:
                 width += grass_width
                 p2 = [p1[0]+grass_width,start_row]
                 p3 = [random.randint(p1[0], p2[0]),grass_height+start_row]
-                color = random.choice(["#0a1420", "#0c1928", "#102033", "#132438", "#172a40"])
+                color = random.choice(self.__colors)
                 self.__points.append([p1,p2,p3])
                 self.__colors.append(color)
                 self.__dx.append(1)
