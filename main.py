@@ -27,8 +27,8 @@ moonx, moony = 0, -20
 numOfFlakes = 30
 
 moons = mo.Moon(moonx, moony, rings)
-flakes = fl.Flakes(numOfFlakes)
-grasses = gr.Grasses()
+flakes = fl.Flakes(numOfFlakes, ["#ffffff"], [5, 10])
+grasses = gr.Grasses(["#0a1420", "#0c1928", "#102033", "#132438", "#172a40"])
 player = pl.Player(screen, 0,0,10,50,"#262153")
 
 moons.draw()
